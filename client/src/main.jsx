@@ -7,7 +7,8 @@ import { ChainId, ThirdwebProvider } from "@thirdweb-dev/react";
 import { StateContextProvider } from "./context";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <ThirdwebProvider desiredChainId={ChainId.goerli}>
+  // here you had specified the chain as goerli where as the G is uppercase for the goerli chain which is why it was unable to identify the smart contract address and call functions on it.
+  <ThirdwebProvider desiredChainId={ChainId.Goerli}>
     <StateContextProvider>
     <Router>
       <App />
