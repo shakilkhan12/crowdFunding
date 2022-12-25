@@ -7,7 +7,7 @@ import { ChainId, ThirdwebProvider } from "@thirdweb-dev/react";
 import { StateContextProvider } from "./context";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <ThirdwebProvider desiredChainId={ChainId.goerli}>
+  <ThirdwebProvider desiredChainId={ChainId.Goerli}>
     <StateContextProvider>
     <Router>
       <App />

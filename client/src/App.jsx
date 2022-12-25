@@ -4,8 +4,6 @@ import { CampaignDetails, CreateCampaign, Home, Profile } from './pages';
 import { useContract } from "@thirdweb-dev/react";
 
 const App = () => {
-  const { contract, isLoading, error } = useContract("0x522fcFd2324c470C494a88bEAD1a6C7296cCf7C4");
-  console.log('contract: ', contract)
   return (
     <div className="relative sm:-8 p-4 bg-[#13131a] min-h-screen flex flex-row">
       <div className="sm:flex hidden mr-10 relative">

@@ -24,12 +24,16 @@ const CreateCampaign = () => {
   }
   const handleSubmit = async e => {
     e.preventDefault();
+    if(form.title === '' || form.target === '' || form.name === '' || form.image === '' || form.description === '' || form.deadline === '') {
+      alert('Please fill out the form');
+      return;
+    }
     checkIfImage(form.image, async (exists) => {
       if(exists) {
         setIsLoading(true)
         await createCampaign({...form, target: ethers.utils.parseUnits(form.target, 18)})
         setIsLoading(false)
-        navigate('/campaigns')
+        navigate('/')
         console.log(form)
       } else {
         alert('Please provide valid image URL')
@@ -70,7 +74,7 @@ const CreateCampaign = () => {
             handleChange={(e) => handleFormFieldChange('description', e)}
           />
 
-        <div className="w-full flex justify-start items-center p-4 bg-[#8c6dfd] h-[120px] rounded-[10px]">
+        <div className="w-full flex justify-start items-center p-4 bg-rose-500 h-[120px] rounded-[10px]">
           <img src={money} alt="money" className="w-[40px] h-[40px] object-contain"/>
           <h4 className="font-epilogue font-bold text-[25px] text-white ml-[20px]">You will get 100% of the raised amount</h4>
         </div>
@@ -104,7 +108,7 @@ const CreateCampaign = () => {
             <CustomButton 
               btnType="submit"
               title="Submit new campaign"
-              styles="bg-[#1dc071]"
+              styles="bg-rose-600"
             />
           </div>
       </form>
